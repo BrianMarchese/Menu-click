@@ -1,9 +1,9 @@
-import Image from "next/image";
+import { CardCategory } from "@/components";
 
 export default function Home() {
   return (
     <div>
-      
+      <CardCategory />
     </div>
   );
 }
