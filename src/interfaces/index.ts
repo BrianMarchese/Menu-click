@@ -12,7 +12,7 @@ export interface Product {
   name: string
   description: string | null
   price: number
-  category: 'burgers' | 'papas' | 'bebidas' | string
+  category: 'burgers' | 'papas' | 'bebidas' | 'rebozados' | string
   image_url: string | null
   is_available: boolean
 }

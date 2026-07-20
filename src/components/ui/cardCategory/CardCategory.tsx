@@ -5,6 +5,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { supabase } from '@/lib/supabase'
 import { Product } from '@/interfaces'
+import { CiDiscount1 } from 'react-icons/ci'
 
 // Definimos las categorías exactas de nuestra base de datos
 // Tus categorías exclusivas con imágenes de alta calidad
@@ -28,6 +29,11 @@ const CATEGORIAS = [
     id: 'bebidas',
     label: 'BEBIDAS',
     image: 'https://images.unsplash.com/photo-1622483767028-3f66f32aef97?w=800',
+  },
+    {
+    id: 'rebozados',
+    label: 'REBOZADOS',
+    image: 'https://images.unsplash.com/photo-1550513008-8cd1a9b590c8?q=80&w=687?w=800',
   },
 ]
 
@@ -71,7 +77,10 @@ export const CardCategory = () => {
 
   return (
     <div className="mx-auto max-w-7xl p-3">
-      
+      <div className="bg-emerald-100 text-green-500 rounded-full flex items-center justify-center gap-2 py-2 md:w-2xl mx-auto">
+        <CiDiscount1 size={28} />
+        <span>20% OFF abonando en efectivo</span>
+      </div>
       {/* SECCIÓN CATEGORÍAS */}
       <div className="mb-10">
         <h2 className="text-xl font-black uppercase tracking-wider text-indigo-500 mb-4 flex items-center gap-2 mt-10">
@@ -195,7 +204,7 @@ export const CardCategory = () => {
 
                 <div className="mt-5 flex items-center justify-between border-t border-blue-800/60 pt-4">
                   <span className="text-xl font-black text-indigo-400">
-                    ${product.price.toLocaleString('es-AR')}
+                    ${product.price}
                   </span>
 
                   <span className="rounded-xl bg-indigo-800 px-3.5 py-1.5 text-xs font-bold text-slate-100 border border-indigo-400/40 group-hover:bg-indigo-400 group-hover:text-slate-950 transition">

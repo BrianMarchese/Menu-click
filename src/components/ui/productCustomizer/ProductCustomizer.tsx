@@ -263,12 +263,12 @@ export default function ProductCustomizer({ product }: ProductCustomizerProps) {
           {/* Botón agregar */}
           <button
             onClick={handleAddToCart}
-            className="flex-1 rounded-xl bg-indigo-400 py-3.5 px-5 font-bold text-slate-950 transition hover:bg-indigo-300 flex items-center justify-between active:scale-[0.98] shadow-lg shadow-indigo-400/20"
+            className="flex-1 rounded-xl bg-indigo-400 py-3.5 px-5 font-bold text-slate-800 transition hover:bg-indigo-300 flex items-center justify-between active:scale-[0.98] shadow-lg shadow-indigo-400/20"
           >
-            <span className="text-sm sm:text-base tracking-wider uppercase font-extrabold">
+            <span className="text-sm sm:text-base tracking-wider uppercase font-extrabold cursor-pointer">
               Agregar al pedido
             </span>
-            <span className="text-base sm:text-lg font-black bg-slate-950/20 px-2.5 py-1 rounded-lg">
+            <span className="text-base sm:text-lg font-black bg-slate-950/20 px-2.5 py-1 rounded-lg ml-2">
               ${totalPrice}
             </span>
           </button>
