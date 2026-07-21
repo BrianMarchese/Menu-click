@@ -89,7 +89,7 @@ export const CardCategory = () => {
         </h2>
 
         {/* Tarjetas de Categoría con la nueva paleta */}
-        <div className="grid grid-cols-2 gap-3 sm:grid-cols-4 sm:gap-4">
+        <div className="grid grid-cols-2 gap-3 sm:grid-cols-5 sm:gap-4">
           {CATEGORIAS.map((cat) => {
             const isActive = activeCategory === cat.id
 

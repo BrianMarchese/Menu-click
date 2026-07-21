@@ -8,7 +8,7 @@ interface PageProps {
 }
 
 export default async function ProductoPage({ params }: PageProps) {
-  // 1. Obtenemos el id de la URL en Next.js 16
+  // 1. Obtengo el id de la URL
   const { id } = await params
 
   // 2. Buscamos el producto en Supabase

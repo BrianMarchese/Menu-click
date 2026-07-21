@@ -1,4 +1,5 @@
 import { NavBar } from "@/components";
+import { CartProvider } from "@/context/CartContext";
 
 export default function TiendaLayout({children}: {
   children: React.ReactNode;
@@ -7,7 +8,9 @@ export default function TiendaLayout({children}: {
     <main className="min-h-screen">
       <NavBar />
       <div>
-        {children}
+        <CartProvider>
+          {children}
+        </CartProvider>
       </div>
     </main>
   );

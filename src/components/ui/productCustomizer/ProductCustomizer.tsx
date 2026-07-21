@@ -11,8 +11,9 @@ import {
   FiMinus,
 } from 'react-icons/fi'
 import { Product, CartItem, ExtraOption } from '@/interfaces'
+import { useCart } from '@/context/CartContext'
 
-// 1. Opciones exclusivas para la categoría PAPAS (Selección única con Radio Buttons)
+// Opciones exclusivas para la categoría PAPAS (Selección única con Radio Buttons)
 const TOPPINGS_PAPAS = [
   { id: 'solas', name: 'Papas Solas', price: 0 },
   { id: 'cheddar', name: 'Con Cheddar', price: 1000 },
@@ -20,7 +21,7 @@ const TOPPINGS_PAPAS = [
   { id: 'cheddar_panceta_verdeo', name: 'Con Cheddar, Panceta y Verdeo', price: 2300 },
 ]
 
-// 2. Extras exclusivos para la categoría BURGERS (Selección múltiple con Checkboxes)
+// Extras exclusivos para la categoría BURGERS (Selección múltiple con Checkboxes)
 const EXTRAS_BURGER: ExtraOption[] = [
   { id: 'medallon_extra', name: 'Medallón de Carne Extra', price: 3000 },
   { id: 'cheddar_extra', name: 'Cheddar Extra', price: 1000 },
@@ -33,6 +34,7 @@ interface ProductCustomizerProps {
 
 export default function ProductCustomizer({ product }: ProductCustomizerProps) {
   const router = useRouter()
+  const { addToCart } = useCart()
 
   // Estados para acordeones
   const [isOpen, setIsOpen] = useState(true)
@@ -78,8 +80,8 @@ export default function ProductCustomizer({ product }: ProductCustomizerProps) {
       subtotal: totalPrice,
     }
 
-    console.log('Ítem agregado al carrito:', item)
-    router.push('/')
+    addToCart(item) // <-- Guarda en el estado global
+    router.push('/carrito') // <-- Redirige directo al carrito
   }
 
   return (
@@ -94,6 +96,7 @@ export default function ProductCustomizer({ product }: ProductCustomizerProps) {
           }
           alt={product.name}
           fill
+          sizes="64px"
           className="object-cover"
           priority
         />
@@ -119,7 +122,6 @@ export default function ProductCustomizer({ product }: ProductCustomizerProps) {
           ${product.price}
         </div>
 
-        {/* ======================================================== */}
         {/* OPCIONES SI ES PAPAS */}
         {isPapas && (
           <div className="mt-8">
@@ -176,7 +178,6 @@ export default function ProductCustomizer({ product }: ProductCustomizerProps) {
           </div>
         )}
 
-        {/* ======================================================== */}
         {/* OPCIONES SI ES BURGER */}
         {isBurger && (
           <div className="mt-8">
@@ -237,7 +238,7 @@ export default function ProductCustomizer({ product }: ProductCustomizerProps) {
 
       </div>
 
-      {/* FOOTER STICKY */}
+      {/* FOOTER */}
       <div className="fixed bottom-0 left-0 right-0 z-40 border-t border-blue-800/80 bg-indigo-800/95 backdrop-blur-md py-4 px-5 shadow-2xl">
         <div className="mx-auto flex max-w-2xl items-center justify-between gap-4">
           

@@ -1,5 +1,6 @@
 'use client'
 
+import Link from "next/link"
 import { useState } from "react"
 import { FaWhatsapp } from "react-icons/fa"
 import { FiHome, FiInfo, FiMapPin, FiMenu, FiX } from "react-icons/fi"
@@ -13,7 +14,7 @@ export const NavBar = () => {
 
   return (
     <nav>
-      <div className="sticky top-0 z-30 grid h-16 grid-cols-3 items-center bg-blue-800 px-6">
+      <div className="sticky top-0 z-30 grid h-16 grid-cols-3 items-center bg-indigo-800 px-6">
         
         {/* Columna Izquierda: Botón Hamburguesa */}
         <div className="flex justify-start">
@@ -28,9 +29,11 @@ export const NavBar = () => {
 
         {/* Columna Central: Nombre del Local (Centrado perfecto) */}
         <div className="flex justify-center text-center">
-          <span className="text-base sm:text-lg font-bold tracking-wider text-indigo-200 whitespace-nowrap">
-            El Club del Bajón VGG
-          </span>
+          <Link href={"/"}>
+            <span className="text-base sm:text-lg font-bold tracking-wider text-indigo-200 whitespace-nowrap">
+              El Club del Bajón VGG
+            </span>
+          </Link>
         </div>
 
         {/* Columna Derecha: Espacio reservado para el Carrito */}
@@ -41,7 +44,7 @@ export const NavBar = () => {
 
       {/* 2. SIDEBAR DESPLEGABLE */}
       <aside
-        className={`fixed inset-y-0 left-0 z-50 flex w-64 flex-col bg-blue-800 py-6 px-4 transition-transform duration-300 ${
+        className={`fixed inset-y-0 left-0 z-50 flex w-64 flex-col bg-indigo-800/90 py-6 px-4 transition-transform duration-300 ${
           isMenuOpen ? 'translate-x-0' : '-translate-x-full'
         }`}
       >
@@ -59,14 +62,15 @@ export const NavBar = () => {
         </div>
 
         <nav className="flex flex-col gap-2">
-          <button
-            onClick={() => setIsMenuOpen(false)}
-            className="flex items-center gap-4 rounded-xl px-4 py-3 text-left font-medium text-slate-300 hover:bg-white/10 hover:text-white transition"
-          >
-            <FiHome className="h-5 w-5 text-indigo-400" />
-            Inicio
-          </button>
-
+          <Link href={"/"}>
+            <button
+              onClick={() => setIsMenuOpen(false)}
+              className="flex items-center gap-4 rounded-xl px-4 py-3 text-left font-medium text-slate-300 hover:bg-white/10 hover:text-white transition"
+            >
+              <FiHome className="h-5 w-5 text-indigo-400" />
+              Inicio
+            </button>
+          </Link>
           <button
             onClick={() => {
               setIsInfoModalOpen(true)
@@ -103,7 +107,7 @@ export const NavBar = () => {
       {/* MODAL: Información */}
       {isInfoModalOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/75 backdrop-blur-xs">
-          <div className="w-full max-w-md rounded-2xl border border-slate-800 bg-blue-950 p-6 shadow-2xl">
+          <div className="w-full max-w-md rounded-2xl border border-slate-800 bg-indigo-900 p-6 shadow-2xl">
             <div className="flex items-center justify-between border-b border-slate-800 pb-4">
               <h3 className="text-xl font-bold text-indigo-300">Información del Local</h3>
               <button
@@ -137,7 +141,7 @@ export const NavBar = () => {
 
             <button
               onClick={() => setIsInfoModalOpen(false)}
-              className="w-full rounded-xl bg-blue-800 py-3 font-semibold text-slate-300 hover:bg-blue-700 transition"
+              className="w-full rounded-xl bg-indigo-600 py-3 font-semibold text-slate-300 hover:bg-indigo-500 transition"
             >
               Cerrar
             </button>
@@ -148,7 +152,7 @@ export const NavBar = () => {
       {/* MODAL: Ubicación */}
       {isMapModalOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/75 backdrop-blur-xs">
-          <div className="w-full max-w-2xl rounded-2xl border border-slate-800 bg-blue-950 p-6 shadow-2xl">
+          <div className="w-full max-w-2xl rounded-2xl border border-slate-800 bg-indigo-900 p-6 shadow-2xl">
             <div className="flex items-center justify-between border-b border-slate-800 pb-4">
               <h3 className="text-xl font-bold text-indigo-300">Nuestra Ubicación</h3>
               <button
@@ -179,7 +183,7 @@ export const NavBar = () => {
 
             <button
               onClick={() => setIsMapModalOpen(false)}
-              className="w-full rounded-xl bg-blue-800 py-3 font-semibold text-slate-300 hover:bg-blue-700 transition"
+              className="w-full rounded-xl bg-indigo-600 py-3 font-semibold text-slate-300 hover:bg-indigo-500 transition"
             >
               Cerrar Mapa
             </button>
