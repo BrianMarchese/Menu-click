@@ -87,7 +87,7 @@ export const CardCategory = () => {
           Categorías
         </h2>
 
-        {/* Tarjetas de Categoría con la nueva paleta */}
+        {/* Tarjetas de Categoría*/}
         <div className="grid grid-cols-2 gap-3 sm:grid-cols-5 sm:gap-4">
           {CATEGORIAS.map((cat) => {
             const isActive = activeCategory === cat.id
@@ -203,7 +203,7 @@ export const CardCategory = () => {
 
                 <div className="mt-5 flex items-center justify-between border-t border-blue-800/60 pt-4">
                   <span className="text-xl font-black text-indigo-400">
-                    ${product.price}
+                    ${product.price.toLocaleString('es-AR')}
                   </span>
 
                   <span className="rounded-xl bg-indigo-800 px-3.5 py-1.5 text-xs font-bold text-slate-100 border border-indigo-400/40 group-hover:bg-indigo-400 group-hover:text-slate-950 transition">

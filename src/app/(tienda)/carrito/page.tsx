@@ -309,7 +309,7 @@ export default function CarritoPage() {
                     </div>
 
                     <span className="text-base font-black text-indigo-400">
-                      ${item.subtotal}
+                      ${item.subtotal.toLocaleString('es-AR')}
                     </span>
                   </div>
                 </div>
@@ -335,7 +335,7 @@ export default function CarritoPage() {
           <div className="mt-8 border-t border-blue-800/60 pt-4">
             <div className="flex items-center justify-between text-xl font-black text-slate-600 mb-6">
               <span>Subtotal del Pedido:</span>
-              <span className="text-indigo-400">${total}</span>
+              <span className="text-indigo-400">${total.toLocaleString('es-AR')}</span>
             </div>
 
             <button
@@ -506,13 +506,13 @@ export default function CarritoPage() {
           <div className="border-t border-blue-800/60 pt-4 space-y-2">
             <div className="flex items-center justify-between text-sm text-slate-400">
               <span>Subtotal:</span>
-              <span>${total}</span>
+              <span>${total.toLocaleString('es-AR')}</span>
             </div>
 
             {paymentMethod === 'Efectivo' && (
               <div className="flex items-center justify-between text-sm font-bold text-emerald-400">
                 <span>Descuento Efectivo (20% OFF):</span>
-                <span>-${(total * 0.2)}</span>
+                <span>-${(total * 0.2).toLocaleString('es-AR')}</span>
               </div>
             )}
 
@@ -521,8 +521,8 @@ export default function CarritoPage() {
               <span className="text-indigo-400">
                 $
                 {(paymentMethod === 'Efectivo'
-                  ? total * 0.8
-                  : total
+                  ? (total * 0.8).toLocaleString('es-AR')
+                  : (total).toLocaleString('es-AR')
                 )}
               </span>
             </div>

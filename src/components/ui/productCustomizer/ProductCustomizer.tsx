@@ -119,7 +119,7 @@ export const ProductCustomizer= ({ product }: ProductCustomizerProps) => {
           {product.description || 'Sin descripción disponible.'}
         </p>
         <div className="mt-4 text-2xl font-black text-indigo-400">
-          ${product.price}
+          ${product.price.toLocaleString('es-AR')}
         </div>
 
         {/* OPCIONES SI ES PAPAS */}
@@ -270,7 +270,7 @@ export const ProductCustomizer= ({ product }: ProductCustomizerProps) => {
               Agregar al pedido
             </span>
             <span className="text-base sm:text-lg font-black bg-slate-950/20 px-2.5 py-1 rounded-lg ml-2">
-              ${totalPrice}
+              ${totalPrice.toLocaleString('es-AR')}
             </span>
           </button>
         </div>

@@ -15,7 +15,11 @@ const nextConfig: NextConfig = {
             {
                 protocol: 'https',
                 hostname: 'www.coca-cola.com' 
-            }
+            },
+            {
+                protocol: 'https',
+                hostname: '*.supabase.co',
+            },
         ]
     }
 };
