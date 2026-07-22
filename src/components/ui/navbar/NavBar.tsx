@@ -4,6 +4,7 @@ import Link from "next/link"
 import { useState } from "react"
 import { FaWhatsapp } from "react-icons/fa"
 import { FiHome, FiInfo, FiMapPin, FiMenu, FiX } from "react-icons/fi"
+import { CartButton } from "../cartButton/CartButton"
 
 export const NavBar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -37,9 +38,7 @@ export const NavBar = () => {
         </div>
 
         {/* Columna Derecha: Espacio reservado para el Carrito */}
-        <div className="flex justify-end">
-          {/* Acá irá el carrito flotante más adelante */}
-        </div>
+        <CartButton />
       </div>
 
       {/* 2. SIDEBAR DESPLEGABLE */}

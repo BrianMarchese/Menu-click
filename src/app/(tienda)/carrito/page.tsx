@@ -42,13 +42,13 @@ export default function CarritoPage() {
   if (cart.length === 0) {
     return (
       <div className="mx-auto max-w-lg px-4 py-16 text-center">
-        <div className="mx-auto mb-4 flex h-20 w-20 items-center justify-center rounded-full bg-indigo-800/30 border border-indigo-400/20 text-indigo-400 text-3xl">
+        <div className="mx-auto mb-4 flex h-20 w-20 items-center justify-center rounded-full bg-indigo-800/20 border border-indigo-400/20 text-indigo-400 text-3xl">
           🛒
         </div>
-        <h2 className="text-2xl font-black text-slate-100 uppercase">
+        <h2 className="text-2xl font-black text-slate-600 uppercase">
           Tu carrito está vacío
         </h2>
-        <p className="mt-2 text-sm text-slate-400">
+        <p className="mt-2 text-sm text-slate-500">
           ¿Todavía no sabés qué pedir? Volvé al menú y armate un buen bajón.
         </p>
         <Link
@@ -92,6 +92,7 @@ export default function CarritoPage() {
       const formattedTime = now.toLocaleTimeString('es-AR', {
         hour: '2-digit',
         minute: '2-digit',
+        hour12: false,
       })
 
       // 2. Cálculo del Descuento por Efectivo (20% OFF)

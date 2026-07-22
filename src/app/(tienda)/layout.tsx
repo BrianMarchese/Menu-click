@@ -5,13 +5,13 @@ export default function TiendaLayout({children}: {
   children: React.ReactNode;
 }) {
   return (
-    <main className="min-h-screen">
-      <NavBar />
-      <div>
+    <div className="min-h-screen">
         <CartProvider>
-          {children}
+          <NavBar />
+          <main>
+            {children}
+          </main>
         </CartProvider>
-      </div>
-    </main>
+    </div>
   );
 }

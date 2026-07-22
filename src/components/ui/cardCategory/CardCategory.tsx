@@ -7,8 +7,7 @@ import { supabase } from '@/lib/supabase'
 import { Product } from '@/interfaces'
 import { CiDiscount1 } from 'react-icons/ci'
 
-// Definimos las categorías exactas de nuestra base de datos
-// Tus categorías exclusivas con imágenes de alta calidad
+// Defino las categorías exactas de nuestra base de datos
 const CATEGORIAS = [
   {
     id: 'todas',

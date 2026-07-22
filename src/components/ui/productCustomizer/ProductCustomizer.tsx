@@ -32,7 +32,7 @@ interface ProductCustomizerProps {
   product: Product
 }
 
-export default function ProductCustomizer({ product }: ProductCustomizerProps) {
+export const ProductCustomizer= ({ product }: ProductCustomizerProps) => {
   const router = useRouter()
   const { addToCart } = useCart()
 
