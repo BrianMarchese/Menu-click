@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { useRouter } from 'next/navigation'
@@ -125,7 +125,7 @@ export default function CarritoPage() {
       const orderNumber = insertedOrder?.id ? `#${insertedOrder.id}` : '#PENDIENTE'
 
       // 4. Armar el mensaje para WhatsApp
-      let msg = ` *CLUB DEL BAJON VGG - NUEVO PEDIDO* \n`
+      let msg = ` *CLUB DEL BAJÓN VGG - NUEVO PEDIDO* \n`
       msg += ` *N° de Pedido:* ${orderNumber}\n`
       msg += ` *Fecha:* ${formattedDate} - ${formattedTime} hs\n`
       msg += `------------------------------------------\n`
@@ -133,7 +133,7 @@ export default function CarritoPage() {
       msg += ` *Teléfono:* ${clientPhone}\n`
       msg += ` *Localidad:* ${locality}\n`
       msg += ` *Entrega:* ${
-        deliveryType === 'Envio' ? 'Envío a domicilio' : 'Retira en local'
+        deliveryType === 'Envio' ? 'Envío a domicilio' : 'Retira en local (Av.San Martin 1450 Villa Gobernador Gálvez)'
       }\n`
       if (deliveryType === 'Envio') {
         msg += `*Dirección:* ${address}\n`
@@ -348,7 +348,7 @@ export default function CarritoPage() {
         </div>
       )}
 
-      {/* PASO 2: FORMULARIO REACT 19 */}
+      {/* PASO 2 */}
       {step === 2 && (
         <form action={handleFinalizeOrder} className="space-y-6">
           <h1 className="text-2xl font-black uppercase text-slate-600">
@@ -440,7 +440,7 @@ export default function CarritoPage() {
                     onChange={(e) => setLocality(e.target.value)}
                     className="w-full rounded-xl border border-blue-800 bg-indigo-800/20 p-3 text-sm text-black focus:border-indigo-400 focus:outline-none"
                   >
-                    <option value="Villa Gobernador Gálvez">
+                    <option value="Villa Gobernador Galvez">
                       Villa Gobernador Gálvez
                     </option>
                     <option value="Rosario (Zona Sur)">

@@ -29,13 +29,25 @@ export interface CartItem {
 
 // 4. Interfaz de la Orden de Compra (Mapeo directo de la tabla 'orders')
 export interface Order {
-  id?: number
-  created_at?: string
+  id: number
+  created_at: string
   client_name: string
   client_phone: string
   payment_method: 'Efectivo' | 'Transferencia'
   delivery_type: 'Envio' | 'Retira'
-  delivery_address?: string | null
+  delivery_address: string
   total: number
   items: CartItem[] // Guardado como JSONB en Supabase
+  status?: string
+}
+
+export interface CartContextType {
+  cart: CartItem[]
+  addToCart: (item: CartItem) => void
+  removeFromCart: (index: number) => void
+  updateQuantity: (index: number, newQuantity: number) => void
+  clearCart: () => void
+  total: number
+  generalNotes: string
+  setGeneralNotes: (notes: string) => void
 }

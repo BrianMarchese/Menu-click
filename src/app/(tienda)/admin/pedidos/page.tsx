@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react'
 import Image from 'next/image'
 import { supabase } from '@/lib/supabase'
-import { CartItem } from '@/interfaces'
+import { CartItem, Order } from '@/interfaces'
 import {
   FiClock,
   FiUser,
@@ -18,19 +18,7 @@ import {
   FiPackage,
 } from 'react-icons/fi'
 
-// Interface para el Pedido recuperado de Supabase
-interface Order {
-  id: number
-  created_at: string
-  client_name: string
-  client_phone: string
-  delivery_type: 'Envio' | 'Retira'
-  delivery_address: string
-  payment_method: 'Efectivo' | 'Transferencia'
-  total: number
-  items: CartItem[]
-  status?: string
-}
+
 
 export default function AdminPedidosPage() {
   const [orders, setOrders] = useState<Order[]>([])
@@ -88,7 +76,7 @@ export default function AdminPedidosPage() {
   }
 
   return (
-    <div className="min-h-screen bg-indigo-800/40 px-4 py-8 text-slate-100">
+    <div className="min-h-screen bg-indigo-800/30 px-4 py-8 text-slate-100">
       <div className="mx-auto max-w-6xl">
         
         {/* HEADER Y BUSCADOR */}
