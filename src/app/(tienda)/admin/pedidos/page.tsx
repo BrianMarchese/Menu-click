@@ -201,7 +201,7 @@ export default function AdminPedidosPage() {
             {/* Encabezado del Modal */}
             <div className="border-b border-blue-800/80 pb-4 pr-10">
               <h2 className="text-xl font-black text-indigo-400 uppercase">
-                Pedido #{selectedOrder.id}
+                Pedido #{selectedOrder.order_number}
               </h2>
               <p className="text-xs font-semibold text-slate-400 mt-0.5">
                 {formatDateTime(selectedOrder.created_at).date} a las{' '}
