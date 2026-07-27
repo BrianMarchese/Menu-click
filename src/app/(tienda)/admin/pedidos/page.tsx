@@ -54,7 +54,7 @@ export default function AdminPedidosPage() {
     const query = searchQuery.toLowerCase()
     return (
       order.client_name.toLowerCase().includes(query) ||
-      order.id.toString().includes(query) ||
+      order.order_number?.toString().includes(query) ||
       order.client_phone.includes(query)
     )
   })
@@ -119,8 +119,8 @@ export default function AdminPedidosPage() {
             <span className="text-ms font-semibold">Cargando pedidos...</span>
           </div>
         ) : filteredOrders.length === 0 ? (
-          <div className="rounded-2xl border border-blue-800/80 bg-indigo-800/10 p-12 text-center text-slate-400">
-            <FiShoppingBag className="mx-auto mb-3 h-12 w-12 text-indigo-400/40" />
+          <div className="rounded-2xl border border-blue-800/80 bg-indigo-800/10 p-12 text-center text-slate-200">
+            <FiShoppingBag className="mx-auto mb-3 h-12 w-12 text-indigo-500/40" />
             <p className="text-base font-bold">No se encontraron pedidos.</p>
           </div>
         ) : (
@@ -136,7 +136,7 @@ export default function AdminPedidosPage() {
                   {/* Encabezado de la Tarjeta */}
                   <div className="flex items-center justify-between border-b border-blue-800/60 pb-3 mb-3">
                     <span className="font-black text-indigo-100 text-sm">
-                      Pedido #{order.id}
+                      Pedido #{order.order_number}
                     </span>
                     <span className="flex items-center gap-1 text-xs font-bold text-slate-400 bg-slate-950 px-2.5 py-1 rounded-lg border border-blue-800/60">
                       <FiClock className="text-indigo-300" />

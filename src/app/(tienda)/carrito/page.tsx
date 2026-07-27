@@ -99,11 +99,13 @@ export default function CarritoPage() {
       const isCash = paymentMethod === 'Efectivo'
       const discountAmount = isCash ? total * 0.2 : 0
       const finalTotal = total - discountAmount
-
+      
+      const orderNumber = `${Math.floor(1000 + Math.random() * 9000)}` 
       // 3. Guardar la orden en Supabase y obtener el ID autogenerado
       const { data: insertedOrder, error: dbError } = await supabase
         .from('orders')
         .insert({
+          order_number: orderNumber,
           client_name: clientName,
           client_phone: clientPhone,
           delivery_type: deliveryType,
@@ -115,14 +117,11 @@ export default function CarritoPage() {
           total: finalTotal,
           items: cart,
         })
-        .select('id')
-        .single()
 
       if (dbError) {
         console.error('Error insertando orden en Supabase:', dbError)
       }
 
-      const orderNumber = insertedOrder?.id ? `#${insertedOrder.id}` : '#PENDIENTE'
 
       // 4. Armar el mensaje para WhatsApp
       let msg = ` *CLUB DEL BAJÓN VGG - NUEVO PEDIDO* \n`

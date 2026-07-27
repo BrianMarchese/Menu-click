@@ -30,6 +30,7 @@ export interface CartItem {
 // 4. Interfaz de la Orden de Compra (Mapeo directo de la tabla 'orders')
 export interface Order {
   id: number
+  order_number?: string
   created_at: string
   client_name: string
   client_phone: string
