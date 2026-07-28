@@ -8,8 +8,34 @@ const geistSans = Geist({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://menu-click-bm.vercel.app'),
   title: "Menú-Click | El Club del Bajón",
   description: "El club del bajón vgg",
+  keywords: [
+    'hamburguesas VGG',
+    'delivery Villa Gobernador Gálvez',
+    'Club del Bajón',
+    'papas con cheddar',
+    'comida rápida VGG',
+    'hamburguesería VGG',
+    'hamburguesas'
+  ],
+  openGraph: {
+    title: 'Club del Bajón VGG — Pedí Online',
+    description: 'Hamburguesas dobles, papas cargadas y combos. ¡20% OFF en efectivo!',
+    url: 'https://clubdelbajonvgg.vercel.app',
+    siteName: 'Club del Bajón VGG',
+    locale: 'es_AR',
+    type: 'website',
+    images: [
+      {
+        url: '/og-image.jpg', // Colocá una foto tentadora de 1200x630px en la carpeta /public
+        width: 1200,
+        height: 630,
+        alt: 'Club del Bajón VGG Hamburguesas',
+      },
+    ],
+  },
 };
 
 export default function RootLayout({
