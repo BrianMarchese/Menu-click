@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     type: 'website',
     images: [
       {
-        url: '/og-image.jpg', // Colocá una foto tentadora de 1200x630px en la carpeta /public
+        url: './logo.jpg', // Colocá una foto tentadora de 1200x630px en la carpeta /public
         width: 1200,
         height: 630,
         alt: 'Club del Bajón VGG Hamburguesas',
