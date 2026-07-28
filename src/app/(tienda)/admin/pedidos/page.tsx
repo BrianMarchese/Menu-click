@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react'
 import Image from 'next/image'
 import { supabase } from '@/lib/supabase'
-import { CartItem, Order } from '@/interfaces'
+import { Order } from '@/interfaces'
 import {
   FiClock,
   FiUser,
@@ -16,7 +16,9 @@ import {
   FiRefreshCw,
   FiTruck,
   FiPackage,
+  FiPrinter,
 } from 'react-icons/fi'
+import { TicketComanda } from '@/components'
 
 
 
@@ -49,6 +51,10 @@ export default function AdminPedidosPage() {
     fetchOrders()
   }, [])
 
+  // Disparar Impresión
+  const handlePrint = () => {
+    window.print()
+  }
   // Filtrado por buscador
   const filteredOrders = orders.filter((order) => {
     const query = searchQuery.toLowerCase()
@@ -77,6 +83,7 @@ export default function AdminPedidosPage() {
 
   return (
     <div className="min-h-screen bg-indigo-800/30 px-4 py-8 text-slate-100">
+      <TicketComanda order={ selectedOrder } />
       <div className="mx-auto max-w-6xl">
         
         {/* HEADER Y BUSCADOR */}
@@ -312,10 +319,21 @@ export default function AdminPedidosPage() {
             </div>
 
             {/* BOTÓN CERRAR */}
-            <div className="pt-2">
+            <div className="flex flex-col sm:flex-row items-center gap-3 pt-2">
+              
+              {/* 🖨️ BOTÓN IMPRIMIR COMANDA */}
+              <button
+                onClick={handlePrint}
+                className="flex w-full sm:w-1/2 items-center justify-center gap-2 rounded-xl bg-indigo-500 py-3 font-black uppercase text-slate-950 transition hover:bg-indigo-400 active:scale-[0.98] shadow-lg shadow-indigo-500/20"
+              >
+                <FiPrinter className="h-4 w-4" />
+                <span>Imprimir Comanda</span>
+              </button>
+
+              {/* BOTÓN CERRAR */}
               <button
                 onClick={() => setSelectedOrder(null)}
-                className="w-full rounded-xl bg-indigo-400 py-3 font-black uppercase text-slate-950 transition hover:bg-indigo-300 active:scale-[0.98]"
+                className="w-full sm:w-1/2 rounded-xl border border-blue-800/80 bg-indigo-800/40 py-3 font-black uppercase text-slate-200 transition hover:bg-indigo-800/80 hover:text-white active:scale-[0.98]"
               >
                 Cerrar Detalle
               </button>
