@@ -8,7 +8,7 @@ const geistSans = Geist({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://menu-click-bm.vercel.app'),
+  metadataBase: new URL('https://menu-click-bm.vercel.app/'),
   title: "Menú-Click | El Club del Bajón",
   description: "El club del bajón vgg",
   keywords: [
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     type: 'website',
     images: [
       {
-        url: './logo.jpg', // Colocá una foto tentadora de 1200x630px en la carpeta /public
+        url: '/logo.jpg',
         width: 1200,
         height: 630,
         alt: 'Club del Bajón VGG Hamburguesas',
