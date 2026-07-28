@@ -9,7 +9,6 @@ interface Props {
 
 export const ProductCard = ({ product }: Props) => {
     return (
-        <div>
             <Link
                 key={product.id}
                 href={`/producto/${product.id}`}
@@ -53,7 +52,6 @@ export const ProductCard = ({ product }: Props) => {
                     </div>
                 </div>
                 </Link>
-        </div>
 
     )
 }
