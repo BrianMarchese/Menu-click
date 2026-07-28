@@ -1,36 +1,31 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🍔 Menú Click — Plataforma de Pedidos Online para Gastronómicos
 
-## Getting Started
+Plataforma web *mobile-first* diseñada para negocios gastronómicos locales. Permite a los clientes explorar el menú, personalizar sus pedidos con extras y enviar la comanda directamente al WhatsApp del local con **0% de comisiones**. Incluye panel de administración en tiempo real.
+---
+---
 
-First, run the development server:
+##  Funcionalidades Principales
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+### 📱 Para el Cliente
+* **Experiencia Mobile-First:** Diseñado para el uso intuitivo con una sola mano.
+* **Personalización de Productos:** Modales interactivos para agregar extras con cálculo de precio en tiempo real.
+* **Descuentos Automáticos:** Cálculo en vivo de promociones (20% OFF en efectivo).
+* **Comanda por WhatsApp:** Generación automática de comanda formateada con código único de pedido (`#XXXX`).
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 🛠️ Administrador
+* **Panel en Tiempo Real:** Recepción inmediata de pedidos respaldada por Supabase.
+* **Gestión de Menú y Stock:** Control de disponibilidad de productos.
+* **Almacenamiento de Imágenes:** Carga directa de fotos a través de Supabase Storage.
+* **Impresión de Comandas:** Cuenta con la funcionalidad de imprimir la comanda para la cocina y tener los pedidos mejor organzados.
+* **Seguridad Avanzada:** Rutas protegidas y políticas de Row Level Security (RLS) en la base de datos.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🛠️ Stack Utilizado
 
-## Learn More
+* **Frontend:** [Next.js](https://nextjs.org/) + TypeScript
+* **Estilos:** [Tailwind CSS](https://tailwindcss.com/)
+* **Base de Datos & Storage:** [Supabase](https://supabase.com/) (PostgreSQL + Buckets)
+* **Iconos:** React Icons
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---

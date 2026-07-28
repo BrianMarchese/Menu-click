@@ -9,7 +9,7 @@ import { supabase } from '@/lib/supabase'
 import { FiTrash2, FiPlus, FiMinus, FiArrowLeft } from 'react-icons/fi'
 import { FaWhatsapp } from 'react-icons/fa'
 
-const WHATSAPP_NUMBER = '543412745522' // Número de WhatsApp del local
+const WHATSAPP_NUMBER = '541212459871' // Número de WhatsApp del local
 
 export default function CarritoPage() {
   const router = useRouter()
