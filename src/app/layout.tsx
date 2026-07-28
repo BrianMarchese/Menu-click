@@ -30,8 +30,6 @@ export const metadata: Metadata = {
     images: [
       {
         url: '/logo.jpg',
-        width: 1200,
-        height: 630,
         alt: 'Club del Bajón VGG Hamburguesas',
       },
     ],
