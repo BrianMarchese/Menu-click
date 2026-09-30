@@ -12,7 +12,7 @@ export const ProductCard = ({ product }: Props) => {
             <Link
                 key={product.id}
                 href={`/producto/${product.id}`}
-                className="group flex flex-col overflow-hidden rounded-2xl border border-blue-800/80 bg-indigo-300/30 backdrop-blur-md transition hover:border-indigo-400 hover:shadow-xl hover:shadow-indigo-800/20"
+                className="group flex flex-col overflow-hidden rounded-2xl bg-indigo-300/30  transition hover:shadow-xl hover:shadow-indigo-800/20"
                 >
                 {/* Imagen del Producto */}
                 <div className="relative h-48 w-full bg-slate-900 overflow-hidden">
@@ -37,12 +37,12 @@ export const ProductCard = ({ product }: Props) => {
                     <h4 className="text-lg font-bold text-[#333435] group-hover:text-indigo-500 transition">
                     {product.name}
                     </h4>
-                    <p className="mt-1 flex-1 text-sm text-slate-600 line-clamp-2 leading-relaxed">
+                    <p className="mt-1 flex-1 text-sm text-[#414c60] line-clamp-2 leading-relaxed">
                     {product.description || 'Sin descripción disponible.'}
                     </p>
 
                     <div className="mt-5 flex items-center justify-between">
-                    <span className="text-xl font-black text-indigo-800">
+                    <span className="text-2xl font-black text-indigo-800">
                         ${product.price.toLocaleString('es-AR')}
                     </span>
 

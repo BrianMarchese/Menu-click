@@ -270,7 +270,7 @@ export const ProductCustomizer= ({ product }: ProductCustomizerProps) => {
           </div>
 
           {/* Precio total */}
-          <span className="text-xl font-black text-slate-800 tracking-tight">
+          <span className="text-2xl font-black text-slate-800 tracking-tight">
             ${totalPrice.toLocaleString('es-AR')}
           </span>
 

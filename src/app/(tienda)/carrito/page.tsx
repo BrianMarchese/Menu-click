@@ -363,12 +363,12 @@ export default function CarritoPage() {
 
           {/* 1. Datos del Cliente */}
           <div className="rounded-2xl border border-blue-800/80 bg-indigo-800/20 p-5 space-y-4">
-            <h3 className="text-sm font-black uppercase tracking-wider text-indigo-400">
+            <h3 className="text-sm font-black uppercase tracking-wider text-indigo-500">
               1. Tus Datos
             </h3>
 
             <div>
-              <label className="block text-sm font-bold text-slate-600 mb-1">
+              <label className="block text-sm font-bold text-slate-700 mb-1">
                 Nombre y Apellido *
               </label>
               <input
@@ -398,7 +398,7 @@ export default function CarritoPage() {
 
           {/* 2. Forma de Entrega */}
           <div className="rounded-2xl border border-blue-800/80 bg-indigo-800/20 p-5 space-y-4">
-            <h3 className="text-sm font-black uppercase tracking-wider text-indigo-400">
+            <h3 className="text-sm font-black uppercase tracking-wider text-indigo-500">
               2. Forma de Entrega
             </h3>
 
@@ -467,7 +467,7 @@ export default function CarritoPage() {
 
           {/* 3. Forma de Pago con Descuento */}
           <div className="rounded-2xl border border-blue-800/80 bg-indigo-800/20 p-5 space-y-4">
-            <h3 className="text-sm font-black uppercase tracking-wider text-indigo-400">
+            <h3 className="text-sm font-black uppercase tracking-wider text-indigo-500">
               3. Forma de Pago
             </h3>
 
@@ -503,7 +503,7 @@ export default function CarritoPage() {
 
           {/* Desglose de Precios Finales */}
           <div className="border-t border-blue-800/60 pt-4 space-y-2">
-            <div className="flex items-center justify-between text-sm text-slate-400">
+            <div className="flex items-center justify-between text-sm text-slate-500">
               <span>Subtotal:</span>
               <span>${total.toLocaleString('es-AR')}</span>
             </div>
