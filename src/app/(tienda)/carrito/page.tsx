@@ -382,7 +382,7 @@ export default function CarritoPage() {
             </div>
 
             <div>
-              <label className="block text-sm font-bold text-slate-600 mb-1">
+              <label className="block text-sm font-bold text-slate-700 mb-1">
                 Teléfono *
               </label>
               <input
