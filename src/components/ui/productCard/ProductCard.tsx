@@ -12,7 +12,7 @@ export const ProductCard = ({ product }: Props) => {
             <Link
                 key={product.id}
                 href={`/producto/${product.id}`}
-                className="group flex flex-col overflow-hidden rounded-2xl border border-blue-800/80 bg-indigo-800/30 backdrop-blur-md transition hover:border-indigo-400 hover:shadow-xl hover:shadow-indigo-800/20"
+                className="group flex flex-col overflow-hidden rounded-2xl border border-blue-800/80 bg-indigo-300/30 backdrop-blur-md transition hover:border-indigo-400 hover:shadow-xl hover:shadow-indigo-800/20"
                 >
                 {/* Imagen del Producto */}
                 <div className="relative h-48 w-full bg-slate-900 overflow-hidden">
@@ -27,28 +27,26 @@ export const ProductCard = ({ product }: Props) => {
                     className="object-cover transition-transform duration-300 group-hover:scale-105"
                     loading="eager"
                     />
-                    <span className="absolute top-3 left-3 rounded-lg bg-indigo-800/90 border border-indigo-400/30 px-2.5 py-1 text-[10px] font-extrabold tracking-wider uppercase text-indigo-200 backdrop-blur-xs">
+                    <span className="absolute top-3 left-3 rounded-lg bg-indigo-100/80 border border-indigo-500/70 px-2.5 py-1 text-[10px] font-extrabold tracking-wider uppercase text-indigo-600 backdrop-blur-xs">
                     {product.category}
                     </span>
                 </div>
 
                 {/* Información */}
                 <div className="flex flex-1 flex-col p-5">
-                    <h4 className="text-lg font-bold text-slate-100 group-hover:text-indigo-400 transition">
+                    <h4 className="text-lg font-bold text-[#333435] group-hover:text-indigo-500 transition">
                     {product.name}
                     </h4>
                     <p className="mt-1 flex-1 text-sm text-slate-600 line-clamp-2 leading-relaxed">
                     {product.description || 'Sin descripción disponible.'}
                     </p>
 
-                    <div className="mt-5 flex items-center justify-between border-t border-blue-800/60 pt-4">
-                    <span className="text-xl font-black text-indigo-400">
+                    <div className="mt-5 flex items-center justify-between">
+                    <span className="text-xl font-black text-indigo-800">
                         ${product.price.toLocaleString('es-AR')}
                     </span>
 
-                    <span className="rounded-xl bg-indigo-800 px-3.5 py-1.5 text-xs font-bold text-slate-100 border border-indigo-400/40 group-hover:bg-indigo-400 group-hover:text-slate-950 transition">
-                        Ver opciones
-                    </span>
+
                     </div>
                 </div>
                 </Link>

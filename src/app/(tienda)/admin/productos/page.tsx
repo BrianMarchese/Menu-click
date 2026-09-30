@@ -202,7 +202,7 @@ export default function AdminProductosPage() {
   })
 
   return (
-    <div className="min-h-screen bg-indigo-800/30 px-4 py-8 text-slate-100">
+    <div className="min-h-screen bg-indigo-300/30 px-4 py-8 text-slate-100">
       <div className="mx-auto max-w-6xl">
         
         {/* HEADER Y BOTÓN NUEVO */}
@@ -290,7 +290,7 @@ export default function AdminProductosPage() {
                     />
 
                     {/* Badge Categoría */}
-                    <span className="absolute top-2 left-2 rounded-lg bg-slate-950/80 px-2.5 py-1 text-[10px] font-black uppercase tracking-wider text-indigo-400 border border-blue-800/60 backdrop-blur-md">
+                    <span className="absolute top-2 left-2 rounded-lg bg-indigo-100/80 px-2.5 py-1 text-[10px] font-black uppercase tracking-wider text-indigo-600 border border-blue-800/60 backdrop-blur-md">
                       {product.category}
                     </span>
 
@@ -299,7 +299,7 @@ export default function AdminProductosPage() {
                       onClick={() => handleToggleAvailability(product)}
                       className={`absolute top-2 right-2 flex items-center gap-1.5 rounded-lg px-2.5 py-1 text-[10px] font-bold transition backdrop-blur-md border ${
                         product.is_available
-                          ? 'bg-emerald-500/20 text-emerald-400 border-emerald-500/40'
+                          ? 'bg-emerald-500/20 text-emerald-500 border-emerald-500/40'
                           : 'bg-red-500/20 text-red-400 border-red-500/40'
                       }`}
                     >
@@ -309,15 +309,15 @@ export default function AdminProductosPage() {
                   </div>
 
                   {/* Nombre y Descripción */}
-                  <h3 className="text-base font-bold text-slate-100">{product.name}</h3>
-                  <p className="mt-1 text-ms text-slate-600 line-clamp-2">
+                  <h3 className="text-base font-bold text-[#333435]">{product.name}</h3>
+                  <p className="mt-1 text-sm text-[#191c23] line-clamp-2">
                     {product.description || 'Sin descripción'}
                   </p>
                 </div>
 
                 {/* Precio y Acciones */}
                 <div className="mt-4 flex items-center justify-between border-t border-blue-800/60 pt-3">
-                  <span className="text-lg font-black text-indigo-500">
+                  <span className="text-lg font-black text-indigo-800">
                     ${product.price.toLocaleString('es-AR')}
                   </span>
 

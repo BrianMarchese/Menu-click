@@ -89,7 +89,7 @@ export const CardCategory = () => {
         </h2>
 
         {/* Tarjetas de Categoría*/}
-        <div className="grid grid-cols-2 gap-3 sm:grid-cols-5 sm:gap-4">
+        <div className="grid grid-cols-1 gap-3 sm:grid-cols-5 sm:gap-4">
           {CATEGORIAS.map((cat) => {
             const isActive = activeCategory === cat.id
 
@@ -109,7 +109,7 @@ export const CardCategory = () => {
                   alt={cat.label}
                   fill
                   sizes="(max-width: 640px) 50vw, 25vw"
-                  className="object-cover transition-transform duration-500 group-hover:scale-110 brightness-60"
+                  className="object-cover transition-transform duration-500 group-hover:scale-110 brightness-50"
                   loading="eager"
                 />
 
@@ -127,8 +127,8 @@ export const CardCategory = () => {
                   <span
                     className={`text-base sm:text-lg font-black uppercase tracking-wider transition-colors duration-200 ${
                       isActive
-                        ? 'text-indigo-400 drop-shadow-md'
-                        : 'text-slate-200 group-hover:text-indigo-400'
+                        ? 'text-indigo-300 drop-shadow-md'
+                        : 'text-slate-200 group-hover:text-indigo-300'
                     }`}
                   >
                     {cat.label}

@@ -85,194 +85,203 @@ export const ProductCustomizer= ({ product }: ProductCustomizerProps) => {
   }
 
   return (
-    <div className="relative min-h-screen bg-slate-900 text-slate-100">
+    <div className="relative min-h-screen bg-[#dce5fa] text-slate-800 flex flex-col justify-between">
       
-      {/* HEADER CON IMAGEN */}
-      <div className="relative h-64 sm:h-80 w-full">
-        <Image
-          src={
-            product.image_url ||
-            'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=800'
-          }
-          alt={product.name}
-          fill
-          sizes="64px"
-          className="object-cover"
-          priority
-        />
-        <div className="absolute inset-0 from-black/60 via-transparent to-slate-950" />
-
-        <button
-          onClick={() => router.back()}
-          className="absolute top-4 left-4 flex h-10 w-10 items-center justify-center rounded-full bg-indigo-800/80 text-slate-100 backdrop-blur-md transition hover:bg-indigo-800 border border-indigo-400/30"
-        >
-          <FiArrowLeft className="h-5 w-5" />
-        </button>
-      </div>
-
-      {/* DETALLE DEL PRODUCTO */}
-      <div className="px-5 pt-2 pb-32 max-w-2xl mx-auto">
-        <h1 className="text-2xl sm:text-3xl font-black uppercase tracking-wider text-slate-100">
-          {product.name}
-        </h1>
-        <p className="mt-2 text-sm text-slate-400 leading-relaxed">
-          {product.description || 'Sin descripción disponible.'}
-        </p>
-        <div className="mt-4 text-2xl font-black text-indigo-400">
-          ${product.price.toLocaleString('es-AR')}
-        </div>
-
-        {/* OPCIONES SI ES PAPAS */}
-        {isPapas && (
-          <div className="mt-8">
-            <h2 className="text-lg font-bold text-slate-100">Personalizá tus Papas</h2>
-            <p className="text-xs text-slate-400 mt-0.5">Elegí el topping que más te guste</p>
-
-            <div className="mt-4 overflow-hidden rounded-2xl border border-blue-800/80 bg-indigo-800/20">
-              <button
-                onClick={() => setIsOpen(!isOpen)}
-                className="flex w-full items-center justify-between p-4 text-left font-bold"
-              >
-                <div>
-                  <span className="text-xs font-black tracking-wider text-indigo-400 uppercase block">
-                    Toppings
-                  </span>
-                  <span className="text-xs text-slate-400">Seleccioná una opción</span>
-                </div>
-                {isOpen ? (
-                  <FiChevronUp className="h-5 w-5 text-indigo-400" />
-                ) : (
-                  <FiChevronDown className="h-5 w-5 text-indigo-400" />
-                )}
-              </button>
-
-              {isOpen && (
-                <div className="border-t border-blue-800/60 p-4 space-y-3 bg-slate-900/40">
-                  {TOPPINGS_PAPAS.map((topping) => (
-                    <label
-                      key={topping.id}
-                      className="flex items-center justify-between cursor-pointer py-1.5"
-                    >
-                      <div className="flex items-center gap-3">
-                        <input
-                          type="radio"
-                          name="topping_papas"
-                          checked={selectedToppingPapa === topping.id}
-                          onChange={() => setSelectedToppingPapa(topping.id)}
-                          className="h-5 w-5 border-blue-800 bg-slate-950 text-indigo-400 focus:ring-indigo-400"
-                        />
-                        <span className="text-sm font-semibold text-slate-200">
-                          {topping.name}
-                        </span>
-                      </div>
-                      {topping.price > 0 && (
-                        <span className="text-sm font-bold text-indigo-400">
-                          +${topping.price}
-                        </span>
-                      )}
-                    </label>
-                  ))}
-                </div>
-              )}
-            </div>
+      {/* CONTENIDO PRINCIPAL */}
+      <div className="flex-1 overflow-y-auto pb-28">
+        
+        { /* Cabecera */}
+        {product.image_url ? (
+          <div className="relative h-28 sm:h-52 w-full">
+            <Image
+              src={product.image_url || 'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=800'}
+              alt={product.name}
+              fill
+              className="object-cover"
+              priority
+            />
+            <button
+              onClick={() => router.back()}
+              className="absolute top-3 left-3 flex h-8 w-8 items-center justify-center rounded-full bg-indigo-800/80 text-slate-100 shadow backdrop-blur-sm transition hover:bg-indigo-800"
+            >
+              <FiArrowLeft className="h-4 w-4" />
+            </button>
+          </div>
+        ) : (
+          <div className="p-4 pb-0">
+            <button
+              onClick={() => router.back()}
+              className="flex h-8 w-8 items-center justify-center rounded-full bg-indigo-800/80 text-slate-100 shadow-sm"
+            >
+              <FiArrowLeft className="h-4 w-4" />
+            </button>
           </div>
         )}
 
-        {/* OPCIONES SI ES BURGER */}
-        {isBurger && (
-          <div className="mt-8">
-            <h2 className="text-lg font-bold text-slate-100">Personalizá tu Hamburguesa</h2>
-            <p className="text-xs text-slate-400 mt-0.5">Sumale más potencia a tu bajón.</p>
+        {/* DETALLE DEL PRODUCTO */}
+        <div className="px-5 pt-3 max-w-2xl mx-auto">
+          <h1 className="text-2xl font-black uppercase tracking-wide text-[#233554]">
+            {product.name}
+          </h1>
+          <p className="mt-1 text-xs sm:text-sm text-[#3d4a60] leading-snug">
+            {product.description || 'Sin descripción disponible.'}
+          </p>
+          
+          <div className="mt-2 text-2xl font-black text-[#3730a3]">
+            ${product.price.toLocaleString('es-AR')}
+          </div>
 
-            <div className="mt-4 overflow-hidden rounded-2xl border border-blue-800/80 bg-indigo-800/20">
-              <button
-                onClick={() => setIsOpen(!isOpen)}
-                className="flex w-full items-center justify-between p-4 text-left font-bold"
-              >
-                <div>
-                  <span className="text-xs font-black tracking-wider text-indigo-400 uppercase block">
-                    Extras Adicionales
-                  </span>
-                  <span className="text-xs text-slate-400">Podés elegir los que quieras</span>
-                </div>
-                {isOpen ? (
-                  <FiChevronUp className="h-5 w-5 text-indigo-400" />
-                ) : (
-                  <FiChevronDown className="h-5 w-5 text-indigo-400" />
-                )}
-              </button>
+          {/* OPCIONES SI ES PAPAS */}
+          {isPapas && (
+            <div className="mt-4">
+              <h2 className="text-lg font-bold text-[#233554]">Personalizá tus Papas</h2>
+              <p className="text-xs text-[#404a5b]">Elegí el topping que más te guste</p>
 
-              {isOpen && (
-                <div className="border-t border-blue-800/60 p-4 space-y-3 bg-slate-900/40">
-                  {EXTRAS_BURGER.map((extra) => {
-                    const isChecked = selectedExtrasBurger.some(
-                      (e) => e.id === extra.id
-                    )
-                    return (
+              <div className="mt-3 overflow-hidden rounded-2xl border border-indigo-200/70 shadow-sm">
+                <button
+                  onClick={() => setIsOpen(!isOpen)}
+                  className="flex w-full items-center justify-between p-3.5 bg-[#121624] text-white text-left transition"
+                >
+                  <div>
+                    <span className="text-xs font-black tracking-wider uppercase block text-slate-200">
+                      Toppings
+                    </span>
+                    <span className="text-xs text-indigo-300">Seleccioná una opción</span>
+                  </div>
+                  {isOpen ? (
+                    <FiChevronUp className="h-4 w-4 text-slate-200" />
+                  ) : (
+                    <FiChevronDown className="h-4 w-4 text-slate-200" />
+                  )}
+                </button>
+
+                {isOpen && (
+                  <div className="p-3.5 space-y-3 bg-[#f8faff]">
+                    {TOPPINGS_PAPAS.map((topping) => (
                       <label
-                        key={extra.id}
-                        className="flex items-center justify-between cursor-pointer py-1"
+                        key={topping.id}
+                        className="flex items-center justify-between cursor-pointer py-0.5"
                       >
                         <div className="flex items-center gap-3">
                           <input
-                            type="checkbox"
-                            checked={isChecked}
-                            onChange={() => handleToggleExtraBurger(extra)}
-                            className="h-5 w-5 rounded border-blue-800 bg-slate-950 text-indigo-400 focus:ring-indigo-400"
+                            type="radio"
+                            name="topping_papas"
+                            checked={selectedToppingPapa === topping.id}
+                            onChange={() => setSelectedToppingPapa(topping.id)}
+                            className="h-4 w-4 border-slate-300 text-indigo-600 focus:ring-0"
                           />
-                          <span className="text-sm font-semibold text-slate-200">
-                            {extra.name}
+                          <span className="text-sm font-semibold text-slate-800">
+                            {topping.name}
                           </span>
                         </div>
-                        <span className="text-sm font-bold text-indigo-400">
-                          +${extra.price}
-                        </span>
+                        {topping.price > 0 && (
+                          <span className="text-sm font-bold text-[#4f27f7]">
+                            +${topping.price}
+                          </span>
+                        )}
                       </label>
-                    );
-                  })}
-                </div>
-              )}
+                    ))}
+                  </div>
+                )}
+              </div>
             </div>
-          </div>
-        )}
+          )}
 
+          {/* OPCIONES SI ES BURGER */}
+          {isBurger && (
+            <div className="mt-4">
+              <h2 className="text-lg font-bold text-[#233554]">Personalizá tu Hamburguesa</h2>
+              <p className="text-xs text-[#404a5b]">Sumale más potencia a tu bajón.</p>
+
+              <div className="mt-3 overflow-hidden rounded-2xl border border-indigo-200/70 shadow-sm">
+                <button
+                  onClick={() => setIsOpen(!isOpen)}
+                  className="flex w-full items-center justify-between p-3.5 bg-[#121624] text-white text-left transition"
+                >
+                  <div>
+                    <span className="text-xs font-black tracking-wider uppercase block text-slate-200">
+                      Extras Adicionales
+                    </span>
+                    <span className="text-xs text-indigo-300">Podés elegir los que quieras</span>
+                  </div>
+                  {isOpen ? (
+                    <FiChevronUp className="h-4 w-4 text-slate-300" />
+                  ) : (
+                    <FiChevronDown className="h-4 w-4 text-slate-300" />
+                  )}
+                </button>
+
+                {isOpen && (
+                  <div className="p-3.5 space-y-3 bg-[#f8faff]">
+                    {EXTRAS_BURGER.map((extra) => {
+                      const isChecked = selectedExtrasBurger.some((e) => e.id === extra.id)
+                      return (
+                        <label
+                          key={extra.id}
+                          className="flex items-center justify-between cursor-pointer py-0.5"
+                        >
+                          <div className="flex items-center gap-3">
+                            <input
+                              type="checkbox"
+                              checked={isChecked}
+                              onChange={() => handleToggleExtraBurger(extra)}
+                              className="h-4 w-4 rounded border-slate-300 text-indigo-600 focus:ring-0"
+                            />
+                            <span className="text-sm font-semibold text-slate-800">
+                              {extra.name}
+                            </span>
+                          </div>
+                          <span className="text-sm font-bold text-[#4f27f7]">
+                            +${extra.price}
+                          </span>
+                        </label>
+                      )
+                    })}
+                  </div>
+                )}
+              </div>
+            </div>
+          )}
+
+        </div>
       </div>
 
       {/* FOOTER */}
-      <div className="fixed bottom-0 left-0 right-0 z-40 border-t border-blue-800/80 bg-indigo-800/95 backdrop-blur-md py-4 px-5 shadow-2xl">
-        <div className="mx-auto flex max-w-2xl items-center justify-between gap-4">
+      <div className="fixed bottom-0 left-0 right-0 z-40 bg-white rounded-t-3xl shadow-[0_-8px_30px_rgba(0,0,0,0.08)] px-2 py-4">
+        <div className="mx-auto flex max-w-lg items-center justify-between gap-3">
           
           {/* Contador de cantidad */}
-          <div className="flex items-center rounded-xl bg-slate-950/80 border border-blue-800/80 p-1">
+          <div className="flex items-center rounded-xl border border-indigo-200 bg-indigo-50/40 px-2 py-1">
             <button
               onClick={() => setQuantity((q) => (q > 1 ? q - 1 : 1))}
-              className="rounded-lg p-2 text-slate-300 hover:bg-indigo-800 hover:text-white transition active:scale-95"
+              className="p-1 text-indigo-500 hover:cursor-pointer"
             >
-              <FiMinus className="h-4 w-4" />
+              <FiMinus className="h-3.5 w-3.5" />
             </button>
-            <span className="w-8 text-center text-base font-bold text-slate-100">
+            <span className="w-7 text-center text-sm font-bold text-slate-800">
               {quantity}
             </span>
             <button
               onClick={() => setQuantity((q) => q + 1)}
-              className="rounded-lg p-2 text-slate-300 hover:bg-indigo-800 hover:text-white transition active:scale-95"
+              className="p-1 text-indigo-500 transition hover:cursor-pointer"
             >
-              <FiPlus className="h-4 w-4" />
+              <FiPlus className="h-3.5 w-3.5" />
             </button>
           </div>
+
+          {/* Precio total */}
+          <span className="text-xl font-black text-slate-800 tracking-tight">
+            ${totalPrice.toLocaleString('es-AR')}
+          </span>
 
           {/* Botón agregar */}
           <button
             onClick={handleAddToCart}
-            className="flex-1 rounded-xl bg-indigo-400 py-3.5 px-5 font-bold text-slate-800 transition hover:bg-indigo-300 flex items-center justify-between active:scale-[0.98] shadow-lg shadow-indigo-400/20"
+            className="rounded-xl bg-[#5227ff] px-6 py-3.5 text-xs font-black uppercase tracking-wider text-white shadow-md shadow-indigo-500/20 transition hover:bg-[#431ce0] hover:cursor-pointer"
           >
-            <span className="text-sm sm:text-base tracking-wider uppercase font-extrabold cursor-pointer">
-              Agregar al pedido
-            </span>
-            <span className="text-base sm:text-lg font-black bg-slate-950/20 px-2.5 py-1 rounded-lg ml-2">
-              ${totalPrice.toLocaleString('es-AR')}
-            </span>
+            Agregar al pedido
           </button>
+
         </div>
       </div>
 
